@@ -45,7 +45,7 @@ saveBtn.addEventListener('click', function () {
 });
 
 
-let like = document.querySelectorAll('.element__text-container_like');
+let like = document.querySelector('.element__text-container_like');
 
 like.addEventListener('click', function (evt) {
     evt.target.classList.toggle('element__text-container_like-active');
