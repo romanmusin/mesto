@@ -1,4 +1,18 @@
 .element__text-container_like {
     border: none;
     background-color: white;
+    background: url('../../../../images/like-button.png');
+    background-size: 100%;
+    width: 22px;
+    height: 19px;
+    outline: none;
+    direction: none;
+    padding: 0;
+    
+}
+
+.element__text-container_like:hover {
+    opacity: 0.6;
+    transition: opacity 0.1s ease;
+    cursor: pointer;
 }

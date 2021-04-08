@@ -4,6 +4,14 @@
     width: 24px;
     height: 24px;
     padding: 0;
+    outline: none;
+    direction: none;
+}
+
+.profile__edit-button:hover {
+    opacity: 0.6;
+    transition: opacity 0.1s ease;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 767px) {

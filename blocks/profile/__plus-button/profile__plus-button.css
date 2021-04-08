@@ -4,6 +4,14 @@
     background-color: black;
     border: 2px solid white;
     align-self: center;
+    outline: none;
+    direction: none;
+}
+
+.profile__plus-button:hover {
+    opacity: 0.6;
+    transition: opacity 0.1s ease;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 767px) {
