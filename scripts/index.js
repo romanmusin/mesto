@@ -44,13 +44,12 @@ saveBtn.addEventListener('click', function () {
     closePopup();
 });
 
-
-let like = document.querySelector('.element__text-container_like');
-
-like.addEventListener('click', function (evt) {
-    evt.target.classList.toggle('element__text-container_like-active');
-    console.log(like.classList);
-});
+let like = document.querySelectorAll('.element__text-container_like').forEach(item => {
+    item.addEventListener('click', function (evt) {
+        evt.target.classList.toggle('element__text-container_like-active');
+        console.log(like.classList);
+    })
+  });
 
 
 
