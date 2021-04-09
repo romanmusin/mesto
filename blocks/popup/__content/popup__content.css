@@ -2,7 +2,7 @@
     position: absolute;
     width: 430px;
     height: 330px;
-    left: 425px;
+    left: calc((100% - 430px)/2);
     top: 195px;
     background-color: white;
     border-radius: 10px;
@@ -13,7 +13,7 @@
     .popup__content {
         width: 282px;
         height: 322px;
-        left: 19px;
+        left: calc((100% - 282px)/2);
         top: 123px;
     }
 }
