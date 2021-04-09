@@ -1,7 +1,7 @@
-const popup = document.querySelector('.popup');
-const openPopupBtn = document.querySelector('.profile__edit-button');
-const closePopupBtn = document.querySelector('.popup__close-button');
-const popupOverlay = document.querySelector('.popup__overlay');
+let popup = document.querySelector('.popup');
+let openPopupBtn = document.querySelector('.profile__edit-button');
+let closePopupBtn = document.querySelector('.popup__close-button');
+let popupOverlay = document.querySelector('.popup__overlay');
 
 function openPopup() {
     popup.classList.add('popup_visible');
@@ -25,7 +25,7 @@ popupOverlay.addEventListener('click', function() {
 
 let popupName = document.querySelector('.popup__input-name').value = document.querySelector('.profile__name').textContent;
 let popupText = document.querySelector('.popup__input-text').value = document.querySelector('.profile__text').textContent;
-const saveBtn = document.querySelector('.popup__save');
+let saveBtn = document.querySelector('.popup__save');
 
 
 function edit() {
@@ -47,7 +47,6 @@ saveBtn.addEventListener('click', function () {
 let like = document.querySelectorAll('.element__text-container_like').forEach(item => {
     item.addEventListener('click', function (evt) {
         evt.target.classList.toggle('element__text-container_like-active');
-        console.log(like.classList);
     })
   });
 

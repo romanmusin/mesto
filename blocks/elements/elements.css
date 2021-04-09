@@ -21,5 +21,6 @@
         row-gap: 20px;
         width: calc(100% - 19px*2);
         margin: 0 auto 48px;
+        justify-items: center;
     }
 }
