@@ -1,7 +1,7 @@
 .element__text-container_like {
     border: none;
     background-color: white;
-    background: url('../../../../images/like-button.png');
+    background: url('../../../../images/like-button.svg');
     background-size: 100%;
     width: 22px;
     height: 19px;

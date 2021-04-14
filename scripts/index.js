@@ -1,7 +1,6 @@
 let popup = document.querySelector('.popup');
 let openPopupBtn = document.querySelector('.profile__edit-button');
 let closePopupBtn = document.querySelector('.popup__close-button');
-let popupOverlay = document.querySelector('.popup__overlay');
 
 function openPopup() {
     popup.classList.add('popup_visible');
@@ -16,10 +15,6 @@ openPopupBtn.addEventListener('click', function() {
 });
 
 closePopupBtn.addEventListener('click', function() {
-    closePopup();
-});
-
-popupOverlay.addEventListener('click', function() {
     closePopup();
 });
 
