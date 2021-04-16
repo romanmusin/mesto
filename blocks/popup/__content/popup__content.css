@@ -1,8 +1,7 @@
 .popup__content {
-    position: fixed;
     width: 430px;
     height: 330px;
-    margin: 195px auto 0;
+    margin: 100px auto 0;
     background-color: white;
     border-radius: 10px;
     box-sizing: border-box;

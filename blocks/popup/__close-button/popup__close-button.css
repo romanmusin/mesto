@@ -3,9 +3,8 @@
     background-size: contain;
     width: 40px;
     height: 40px;
-    position: absolute;
-    top: -40px;
-    right: -40px;
+    margin-top: -35px;
+    margin-left: 425px;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -23,7 +22,8 @@
     .popup__close-button {
         width: 26px;
         height: 26px;
-        top: -40px;
-        right: 0;
+        margin: 0;
+        margin-left: 260px;
+        margin-top: -30px;
     }
 }
