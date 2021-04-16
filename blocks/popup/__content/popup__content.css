@@ -1,9 +1,8 @@
 .popup__content {
-    position: absolute;
+    position: fixed;
     width: 430px;
     height: 330px;
-    left: calc((100% - 430px)/2);
-    top: 195px;
+    margin: 195px auto 0;
     background-color: white;
     border-radius: 10px;
     box-sizing: border-box;
@@ -13,7 +12,6 @@
     .popup__content {
         width: 282px;
         height: 322px;
-        left: calc((100% - 282px)/2);
-        top: 123px;
+        margin: 123px 19px 0;
     }
 }

@@ -1,12 +1,12 @@
 .profile__button-container {
-    height: 40px;
+    min-height: 39px;
     display: flex;
     flex-direction: row;
     align-items: center;
     margin: 0 0 16px 0;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1023px) {
     .profile__button-container {
         margin: 0;
         margin-bottom: 14px;

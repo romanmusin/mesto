@@ -4,9 +4,10 @@
     min-height: 120px;
     display: flex;
     flex-direction: row;
+    box-sizing: border-box;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1023px) {
     .profile {
         width: calc(100% - 19px*2);
         margin: 0 auto 36px;
