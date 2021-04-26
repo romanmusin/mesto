@@ -1,7 +1,6 @@
 .profile__info {
     margin: auto calc(100% - (880px - 251px)) auto 30px;
     width: 336px;
-    min-height: 73px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

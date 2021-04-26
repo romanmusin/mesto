@@ -4,8 +4,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     margin: 45px 200px 40px;
-    border-bottom: 1px solid #545454;
-    min-height: 74px;
+    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
     min-width: 320px;
     max-width: 1280px;
     width: calc(100% - 400px);
@@ -15,6 +14,5 @@
     .header {
         margin: 28px 0 42px;
         width: 100%;
-        height: 56px;
     }
 }

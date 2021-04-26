@@ -1,5 +1,4 @@
 .profile__button-container {
-    min-height: 39px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -11,8 +10,6 @@
         margin: 0;
         margin-bottom: 14px;
         width: 100%;
-        height: 26px;
-        align-items: center;
         justify-content: center;
     }
 }

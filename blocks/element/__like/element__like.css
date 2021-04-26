@@ -1,7 +1,6 @@
-.element__text-container_like {
+.element__like {
     border: none;
-    background-color: white;
-    background: url('../../../../images/like-button.svg');
+    background: url('../../../images/like-button.svg');
     background-size: 100%;
     width: 22px;
     height: 19px;
@@ -10,8 +9,8 @@
     margin: 0;
 }
 
-.element__text-container_like:hover {
-    opacity: 0.6;
+.element__like:hover {
+    opacity: 0.5;
     transition: opacity 0.1s ease;
     cursor: pointer;
 }

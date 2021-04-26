@@ -3,6 +3,7 @@
     height: 50px;
     background-color: black;
     border: 2px solid white;
+    border-radius: 2px;
     align-self: center;
     outline: none;
     direction: none;

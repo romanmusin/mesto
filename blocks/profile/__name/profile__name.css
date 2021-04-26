@@ -28,8 +28,6 @@
 @media screen and (max-width: 1023px) {
     .profile__name {
         margin: 0;
-        font-style: normal;
-        font-weight: 500;
         font-size: 27px;
         line-height: 33px;
         margin-left: calc(65px - 19px);

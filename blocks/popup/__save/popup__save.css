@@ -1,6 +1,9 @@
 .popup__save {
     background-color: black;
-    width: 358px;
+    border: none;
+    border-radius: 2px;
+    padding: 0;
+    width: calc(100% - 36px*2);
     height: 50px;
     font-style: normal;
     font-weight: normal;
@@ -16,7 +19,7 @@
 
 .popup__save:hover {
     cursor: pointer;
-    opacity: 0.6;
+    opacity: 0.8;
     transition: opacity 0.1s ease;
 }
 
