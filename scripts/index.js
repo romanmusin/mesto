@@ -12,7 +12,7 @@ let profName = document.querySelector('.profile__name');
 
 let profText = document.querySelector('.profile__text');
 
-let saveBtn = document.querySelector('.popup__save');
+let popupForm = document.querySelector('form');
 
 function openPopup() {
     popupName.value = profName.textContent;
@@ -34,7 +34,7 @@ openPopupBtn.addEventListener('click', openPopup);
 
 closePopupBtn.addEventListener('click', closePopup);
  
-saveBtn.addEventListener('click', edit);
+popupForm.addEventListener('submit', edit);
 
 //let like = document.querySelectorAll('.element__like').forEach(item => {
 //    item.addEventListener('click', function (evt) {
