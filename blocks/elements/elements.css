@@ -20,7 +20,6 @@
     .elements {
         grid-template-rows: repeat(6, 1fr);
         grid-template-columns: 1fr;
-        row-gap: 20px;
         width: calc(100% - 19px*2);
         margin: 0 auto 48px;
         justify-items: center;
