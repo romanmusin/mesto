@@ -24,7 +24,8 @@ function closePopup() {
     popup.classList.remove('popup_visible');
 }
 
-function edit() {
+function edit (evt) {
+    evt.preventDefault();
     profName.textContent = popupName.value;
     profText.textContent = popupText.value;
     closePopup();
