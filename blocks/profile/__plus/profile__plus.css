@@ -1,4 +1,4 @@
-.profile__plus-button {
+.profile__plus {
     width: 150px;
     height: 50px;
     background-color: black;
@@ -9,14 +9,14 @@
     direction: none;
 }
 
-.profile__plus-button:hover {
+.profile__plus:hover {
     opacity: 0.6;
     transition: opacity 0.1s ease;
     cursor: pointer;
 }
 
 @media screen and (max-width: 767px) {
-    .profile__plus-button {
+    .profile__plus {
         width: 282px;
     }
 }

@@ -37,8 +37,8 @@ closePopupBtn.addEventListener('click', closePopup);
  
 popupForm.addEventListener('submit', edit);
 
-//let like = document.querySelectorAll('.element__like').forEach(item => {
-//    item.addEventListener('click', function (evt) {
-//        evt.target.classList.toggle('element__like-active');
-//    })
-//  });
+let like = document.querySelectorAll('.element__like').forEach(item => {
+    item.addEventListener('click', function (evt) {
+        evt.target.classList.toggle('element__like_active');
+    })
+});
