@@ -26,10 +26,31 @@
         </section>
  
         <section class="elements">
+            <template class="elements__template">
+                <article class="element">
+                    <div class="element__picture">
+                        <img src="" alt="" class="element__image">
+                        <button type="reset" class="element__delete"></button>
+                    </div>
+                    
+                    <div class="element__text-container">
+                        <h3 class="element__name"></h3>
+                        <button type="button" class="element__like"></button>
+                    </div>
+            </template>
+            
+            <!--</article>
             <article class="element">
-                <img src="images/karachaevsk.jpg" alt="Карачаевск" class="element__image">
+                <img src="images/elbrus.jpg" alt="Эльбрус" class="element__image">
                 <div class="element__text-container">
-                    <h3 class="element__name">Карачаевск</h3>
+                    <h3 class="element__name">Гора Эльбрус</h3>
+                    <button type="button" class="element__like"></button>
+                </div>
+            </article>
+            <article class="element">
+                <img src="images/dombay.jpg" alt="Домбай" class="element__image">
+                <div class="element__text-container">
+                    <h3 class="element__name">Домбай</h3>
                     <button type="button" class="element__like"></button>
                 </div>
             </article>
@@ -48,26 +69,12 @@
                 </div>
             </article>
             <article class="element">
-                <img src="images/elbrus.jpg" alt="Эльбрус" class="element__image">
-                <div class="element__text-container">
-                    <h3 class="element__name">Гора Эльбрус</h3>
-                    <button type="button" class="element__like"></button>
-                </div>
-            </article>
-            <article class="element">
-                <img src="images/dombay.jpg" alt="Домбай" class="element__image">
-                <div class="element__text-container">
-                    <h3 class="element__name">Домбай</h3>
-                    <button type="button" class="element__like"></button>
-                </div>
-            </article>
-            <article class="element">
                 <img src="images/karachaevsk.jpg" alt="Карачаевск" class="element__image">
                 <div class="element__text-container">
                     <h3 class="element__name">Карачаевск</h3>
                     <button type="button" class="element__like"></button>
                 </div>
-            </article>
+            </article>-->
         </section>
     </main>
     <footer class="footer">
@@ -85,6 +92,26 @@
             
         </div>
     </div>
+    <div class="popup-card">
+        <div class="popup__content">
+            <form name="popup-card">
+                <button type="button" class="popup__close-button"></button>
+                <h2 class="popup__header">Новое место</h2>  
+                <input type="text" class="popup__input popup__input_type_card" placeholder="Название" name="card">
+                <input type="text" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку" name="link">
+                <button type="submit" class="popup__save">Создать</button>
+            </form>
+            
+        </div>
+    </div>
+    <div class="popup-img">
+        <div class="popup-img__content">
+            <button type="button" class="popup-img__close"></button>
+            <img src="" alt="" class="popup-img__pic">
+            <h3 class="popup-img__text"></h3>
+        </div>
+    </div>
+    <script src="scripts/cards.js"></script>
     <script src="scripts/index.js"></script>
 </body>
 </html>
