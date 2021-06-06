@@ -100,7 +100,7 @@ function newCard(evt) {
     elTemplate.querySelector('.element__image').src = userLink.value;
     elTemplate.querySelector('.element__image').alt = userTitle.value;
     insertCards(userTitle.value, userLink.value);
-    elements.appendChild(newCard);
+    elements.append(newCard);
     closePopupCard(evt);
 };
 
