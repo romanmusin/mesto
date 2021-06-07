@@ -14,10 +14,19 @@
 
 @media screen and (max-width: 1279px) {
     .elements {
-        width: calc(100% - 125px*2);
+        width: calc(882px - 12px*2);
+        column-gap: 5px;
+    }
+}
+
+@media screen and (max-width: 889px) {
+    .elements {
+        column-gap: 17px;
+        width: calc(282px*2 + 17px*2);
         grid-template-rows: repeat(3, 361px);
         grid-template-columns: repeat(2, 282px);
     }
+    
 }
 
 @media screen and (max-width: 767px) {
