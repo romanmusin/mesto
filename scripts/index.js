@@ -25,7 +25,7 @@ function openPopup() {
 }
 
 function openPopupCard() {
-    popupCard.classList.add('popup__add-card_visible');
+    popupCard.classList.add('popup_add-card_visible');
     
 }
 
@@ -94,8 +94,8 @@ initialCards.forEach(function(item) {
 });
 
 function closePopupCard() {
-    popupCard.classList.remove('popup__add-card_visible');
-    document.querySelector('.popup__add-card').querySelector('form').reset();
+    popupCard.classList.remove('popup_add-card_visible');
+    document.querySelector('.popup_add-card').querySelector('form').reset();
 }
 
 function newCard(evt) {
@@ -108,7 +108,7 @@ function newCard(evt) {
     closePopupCard(evt);
 };
 
-document.querySelector('.popup__add-card').querySelector('form').addEventListener('submit', newCard);
+document.querySelector('.popup_add-card').querySelector('form').addEventListener('submit', newCard);
 
 const closePicBtn = document.querySelector('.popup__image-close');
 
