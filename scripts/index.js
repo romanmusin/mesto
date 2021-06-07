@@ -1,6 +1,6 @@
 const popupEditProfile = document.querySelector('.popup');
 
-const popupCard = document.querySelector('.popup__add-card');
+const popupCard = document.querySelector('.popup_add-card');
 
 const openPopupBtn = document.querySelector('.profile__edit-button');
 
@@ -80,7 +80,7 @@ function createCards(name, link) {
         item.addEventListener('click', function(evt) {
             document.querySelector('.popup__image-pic').src = evt.target.closest('.element__image').src;
             document.querySelector('.popup__image-text').textContent = evt.target.closest('.element__image').alt;
-            popupImg.classList.add('popup__image_visible');
+            popupImg.classList.add('popup_image_visible');
         })
     });
     
@@ -112,10 +112,10 @@ document.querySelector('.popup_add-card').querySelector('form').addEventListener
 
 const closePicBtn = document.querySelector('.popup__image-close');
 
-const popupImg = document.querySelector('.popup__image');
+const popupImg = document.querySelector('.popup_image');
 
 function closePic() {
-    popupImg.classList.remove('popup__image_visible');
+    popupImg.classList.remove('popup_image_visible');
 };
 
 document.querySelector('.popup__image-close').addEventListener('click', closePic);
