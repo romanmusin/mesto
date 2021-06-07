@@ -11,12 +11,11 @@
 @import url('../blocks/popup/__save/popup__save.css');
 @import url('../blocks/popup_add-card/_visible/popup_add-card_visible.css');
 @import url('../blocks/popup/_image/poopup_image.css');
-@import url('../blocks/popup/_image/_content/popup_image_content.css');
-@import url('../blocks/popup/_image/_pic/popup_image_pic.css');
-@import url('../blocks/popup/_image/_text/poopup_image_text.css');
-@import url('../blocks/popup/_image/_close/popup_image_close.css');
+@import url('../blocks/popup/_image-content/popup_image-content.css');
+@import url('../blocks/popup/_image-pic/popup_image-pic.css');
+@import url('../blocks/popup/_image-text/poopup_image-text.css');
+@import url('../blocks/popup/_image-close/popup_image-close.css');
 @import url('../blocks/popup/_image/_visible/popup_image_visible.css');
-
 
 @import url('../blocks/header/header.css');
 @import url('../blocks/header/__logo/header__logo.css');
