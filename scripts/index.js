@@ -1,10 +1,3 @@
-
-/*Здравствуйте. В прошлый раз в консоли у меня не было никаких ошибок, в этот раз тоже нет, если будут,
-    прикрепите пожалуйста скрин.
-    Также в макете нет информации по адаптивности страницы между 1280px и 320px. В задании в практике
-    об этом тоже ничего не сказано, пожтому садаптировал интуитивно.*/
-
-    
 const popupEditProfile = document.querySelector('.popup');
 const popupCard = document.querySelector('.popup_add-card');
 const openPopupBtn = document.querySelector('.profile__edit-button');
@@ -25,8 +18,6 @@ function submitEditProfileForm (evt) {
 
 formEditProfile.addEventListener('submit', submitEditProfileForm);
 
-/////////////////
-
 const elements = document.querySelector('.elements');
 const cardTemplate = document.querySelector('.elements__template').content;
 const userTitle = document.querySelector('.popup__input_type_card');
@@ -37,10 +28,11 @@ const popupImageText = document.querySelector('.popup__image-text');
 function createCards(title, image) {
     
     const cardItem = cardTemplate.cloneNode(true);
-
+    const cardImage = cardItem.querySelector('.element__image');
+    
     cardItem.querySelector('.element__name').textContent = title;
-    cardItem.querySelector('.element__image').src = image;
-    cardItem.querySelector('.element__image').alt = title;
+    cardImage.src = image;
+    cardImage.alt = title;
 
     cardItem.querySelector('.element__like').addEventListener('click', function(evt) {
         evt.target.classList.toggle('element__like_active');
@@ -48,32 +40,32 @@ function createCards(title, image) {
 
     cardItem.querySelector('.element__delete').addEventListener('click', function(evt) {
             evt.target.closest('.element').remove();
-        });
+    });
     
-    cardItem.querySelector('.element__image').addEventListener('click', function(evt) {
-            popupImage.src = evt.target.closest('.element__image').src;
-            popupImage.alt = evt.target.closest('.element__image').alt;
-            popupImageText.textContent = evt.target.closest('.element__image').alt;
-            openPopup(popupImg);
-        });
+    cardImage.addEventListener('click', function(evt) {
+        const cardImageEvt = evt.target.closest('.element__image');
+        popupImage.src = cardImageEvt.src;
+        popupImage.alt = cardImageEvt.alt;
+        popupImageText.textContent = cardImageEvt.alt;
+        openPopup(popupImg);
+    });
 
     return(cardItem);
 };
 
 
 initialCards.forEach(function(item) {
-    
     elements.prepend(createCards(item.name, item.link));
 });
 
 function newCard(evt) {
     evt.preventDefault();
-    
     elements.prepend(createCards(userTitle.value, userLink.value));
     closeAddCardForm(evt);
 };
 
 const cardForm = document.querySelector('.popup_add-card').querySelector('form');
+
 cardForm.addEventListener('submit', newCard);
 
 const closePicBtn = document.querySelector('.popup__image-close');
@@ -108,6 +100,7 @@ plusButton.addEventListener('click', function() {
 });
 
 const closeCardBtn = popupCard.querySelector('.popup__close-button');
+
 closeCardBtn.addEventListener('click', closeAddCardForm);
 
 closePicBtn.addEventListener('click', function() {
