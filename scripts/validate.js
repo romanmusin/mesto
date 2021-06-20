@@ -1,13 +1,13 @@
-let conf = [
-    {formSelector: '.popup__form',
+let conf = {
+    formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__save',
-    inactiveButtonClass: '.popup__save_disabled',
-    inputErrorClass: '.popup__input_invalid',
-    errorClass: '.error_valid'}
-]
+    inactiveButtonClass: 'popup__save_disabled',
+    inputErrorClass: 'popup__input_invalid',
+    errorClass: 'error_valid'
+}
 
-const showError = (formElement, inputElement, errorMessage, conf) => {
+const showError = (inputElement, formElement, errorMessage, conf) => {
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.add(conf.inputErrorClass);
     errorElement.classList.remove(conf.errorClass);
@@ -23,7 +23,7 @@ const hideError = (formElement, inputElement, conf) => {
 
 const isValid = (formElement, inputElement, conf) => {
     if (!inputElement.validity.valid) {
-      showError(formElement, inputElement, inputElement.validationMessage, conf);
+      showError(inputElement, formElement, inputElement.validationMessage, conf);
     } else {
       hideError(formElement, inputElement, conf);
     }
@@ -50,7 +50,7 @@ const inputInvalid = (inputList) => {
 };
 
 function toggleSubmitButtonState(inputList, formElement, conf) {
-    const buttonElement = formElement.querySelector('.popup__save');
+    const buttonElement = formElement.querySelector(conf.submitButtonSelector);
     if (inputInvalid(inputList)) {
         buttonElement.classList.add(conf.inactiveButtonClass);
         buttonElement.setAttribute('disabled', 'disabled');
@@ -61,7 +61,7 @@ function toggleSubmitButtonState(inputList, formElement, conf) {
 }
 
 function enableValidation(conf) {
-    const formList = Array.from(document.querySelectorAll('.popup__form'));
+    const formList = Array.from(document.querySelectorAll(conf.formSelector));
 
     formList.forEach((formElement) => {
     formElement.addEventListener('submit', (evt) => {
