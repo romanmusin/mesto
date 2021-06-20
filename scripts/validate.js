@@ -4,7 +4,7 @@ let conf = {
     submitButtonSelector: '.popup__save',
     inactiveButtonClass: 'popup__save_disabled',
     inputErrorClass: 'popup__input_type_error',
-    errorClass: 'error_valid'
+    errorClass: 'input-error_valid'
 }
 
 const showError = (inputElement, formElement, errorMessage, conf) => {
