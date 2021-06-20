@@ -16,3 +16,14 @@
 .input-error:last-of-type {
     top: 200px;
 }
+
+@media screen and (max-width: 767px) {
+    .input-error {
+        top: 140px;
+        left: 22px;
+    }
+
+    .input-error:last-of-type {
+        top: 205px;
+    }
+}

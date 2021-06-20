@@ -74,10 +74,12 @@ const popupImg = document.querySelector('.popup_image');
 
 function openPopup(item) {
     item.classList.add('popup_visible')
+    document.addEventListener('keydown', closeByEsc)
 }
 
 function closePopup(item) {
     item.classList.remove('popup_visible')
+    document.removeEventListener('keydown', closeByEsc)
 }
 
 function closeAddCardForm() {
@@ -106,3 +108,21 @@ closeCardBtn.addEventListener('click', closeAddCardForm);
 closePicBtn.addEventListener('click', function() {
     closePopup(popupImg);
 });
+
+const closeByEsc = (evt) => {
+    const popup = document.querySelector('.popup_visible')
+    if (evt.key === 'Escape') {
+      closePopup(popup);
+    }
+};
+
+function closeByOverlay(evt) {
+    const popup = document.querySelector('.popup_visible')
+    if (evt.target.classList.contains('popup_visible')) {
+      closePopup(popup);
+    }
+  }
+
+  popupEditProfile.addEventListener('mousedown', closeByOverlay);
+  popupImg.addEventListener('mousedown', closeByOverlay);
+  popupCard.addEventListener('mousedown', closeByOverlay);
