@@ -1,6 +1,9 @@
 .popup__save {
+    
     background-color: black;
     border: none;
+    color: white;
+    opacity: 1;
     border-radius: 2px;
     padding: 0;
     width: calc(100% - 36px*2);
@@ -10,7 +13,6 @@
     font-size: 18px;
     line-height: 22px;
     margin: 18px auto 37px;
-    color: white;
     display: flex;
     flex-direction: row;
     justify-content: center;

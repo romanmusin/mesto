@@ -4,6 +4,7 @@
     background-color: white;
     border-radius: 10px;
     box-sizing: border-box;
+    position: relative;
 }
 
 @media screen and (max-width: 767px) {
