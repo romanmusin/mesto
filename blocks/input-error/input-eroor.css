@@ -1,4 +1,4 @@
-.error {
+.input-error {
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
@@ -13,6 +13,6 @@
     z-index: 1;
 }
 
-.error:last-of-type {
+.input-error:last-of-type {
     top: 200px;
 }

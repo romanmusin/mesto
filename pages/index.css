@@ -2,15 +2,15 @@
 @import url('../vendor/fonts/fonts.css');
 @import url('../blocks/page/page.css');
 
-@import url('../blocks/error/eroor.css');
-@import url('../blocks/error/_valid/eroor_valid.css');
+@import url('../blocks/input-error/input-eroor.css');
+@import url('../blocks/input-error/_valid/input-eroor_valid.css');
 
 @import url('../blocks/popup/popup.css');
 @import url('../blocks/popup/__content/popup__content.css');
 @import url('../blocks/popup/__close-button/popup__close-button.css');
 @import url('../blocks/popup/_visible/popup_visible.css');
 @import url('../blocks/popup/__input/popup__input.css');
-@import url('../blocks/popup/__input/_invalid/popup__input_invalid.css');
+@import url('../blocks/popup/__input/_type/_error/popup__input_type_error.css');
 @import url('../blocks/popup/__header/popup__header.css');
 @import url('../blocks/popup/__save/popup__save.css');
 @import url('../blocks/popup/__save/_disabled/popup__save_disabled.css');
