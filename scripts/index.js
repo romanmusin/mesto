@@ -1,4 +1,4 @@
-const popup = document.querySelector('.popup');
+
 const popupEditProfile = document.querySelector('.popup_edit-profile');
 const popupCard = document.querySelector('.popup_add-card');
 const openPopupBtn = document.querySelector('.profile__edit-button');
@@ -10,6 +10,7 @@ const profName = document.querySelector('.profile__name');
 const profText = document.querySelector('.profile__text');
 const formEditProfile = document.querySelector('form[name="edit_form"]');
 const Esc = 'Escape';
+const cardSaveButton = popupCard.querySelector('.popup__save');
 
 function submitEditProfileForm (evt) {
     evt.preventDefault();
@@ -64,8 +65,8 @@ function newCard(evt) {
     evt.preventDefault();
     elements.prepend(createCards(userTitle.value, userLink.value));
     closeAddCardForm(evt);
-    popupCard.querySelector('.popup__save').setAttribute('disabled', 'disabled');
-    popupCard.querySelector('.popup__save').classList.add('popup__save_disabled');
+    cardSaveButton.setAttribute('disabled', 'disabled');
+    cardSaveButton.classList.add('popup__save_disabled');
 };
 
 const cardForm = document.querySelector('.popup_add-card').querySelector('form');
@@ -98,7 +99,7 @@ openPopupBtn.addEventListener('click', function() {
 });
 
 closePopupBtn.addEventListener('click', function() {
-    closePopup(popup)
+    closePopup(popupEditProfile)
 });
 
 plusButton.addEventListener('click', function() {
