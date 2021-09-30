@@ -4,32 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="pages/index.css">
-    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
     <title>Mesto</title>
     
 </head>
 <body class="page">
     
     <header class="header">
-        <img src="images/header_logo.svg" alt="Логотип" class="header__logo">
+        <img src="<%=require('./images/header_logo.svg')%>" alt="Логотип" class="header__logo">
     </header>
 
     <main>
         <section class="profile">
-            <img src="images/kusto.jpg" alt="аватар" class="profile__avatar">
+            <img src="<%=require('./images/kusto.jpg')%>" alt="аватар" class="profile__avatar">
             <div class="profile__info">
                 <div class="profile__button-container">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <button type="button" class="profile__edit-button"><img src="images/pen.svg" alt="измеить"></button>
+                    <button type="button" class="profile__edit-button"><img src="<%=require('./images/pen.svg')%>" alt="измеить"></button>
                 </div>
                 <p class="profile__text">Исследователь океана</p>
             </div>            
-            <button type="button" class="profile__plus"><img src="images/plus-button.svg" alt="Добавить" class="profile__plus-img"></button>
+            <button type="button" class="profile__plus"><img src="<%=require('./images/plus-button.svg')%>" alt="Добавить" class="profile__plus-img"></button>
         </section>
  
         <section class="elements">
-            <template class="elements__template">
+            <template class="elements__template" id="template">
                 <article class="element">
                     <div class="element__picture">
                         <img src="#" alt="" class="element__image">
@@ -54,9 +52,9 @@
             <form name="edit_form" class="popup__form" novalidate>
                 <button type="button" class="popup__close-button"></button>
                 <h2 class="popup__header">Редактировать профиль</h2>  
-                <input type="text" id="name" class="popup__input popup__input_type_name" name="pr-name" minlength="2" maxlength="40" required placeholder="Имя">
+                <input type="text" id="name" class="popup__input popup__input_type_name" name="name" minlength="2" maxlength="40" required placeholder="Имя">
                 <span class="input-error input-error_valid" id="name-error"></span>
-                <input type="text" id="text" class="popup__input popup__input_type_text" name="pr-text" minlength="2" maxlength="200" required placeholder="Вид деятельности">
+                <input type="text" id="text" class="popup__input popup__input_type_text" name="job" minlength="2" maxlength="200" required placeholder="Вид деятельности">
                 <span class="input-error input-error_valid" id="text-error"></span>
                 <button type="submit" class="popup__save popup__save_active">Сохранить</button>
             </form>
@@ -68,7 +66,7 @@
             <form name="add-card_form" class="popup__form" novalidate>
                 <button type="button" class="popup__close-button"></button>
                 <h2 class="popup__header">Новое место</h2>  
-                <input type="text" id="card-name" class="popup__input popup__input_type_card" minlength="2" maxlength="30" required placeholder="Название" name="card">
+                <input type="text" id="card-name" class="popup__input popup__input_type_card" minlength="2" maxlength="30" required placeholder="Название" name="name">
                 <span class="input-error input-error_valid" id="card-name-error"></span>
                 <input type="url" id="link" class="popup__input popup__input_type_link" minlength="2" required placeholder="Ссылка на картинку" name="link">
                 <span class="input-error input-error_valid" id="link-error"></span>
@@ -83,11 +81,7 @@
             <img src="#" alt="#" class="popup__image-content popup__image-pic">
             <h3 class="popup__image-content popup__image-text"></h3>
         </div>
-    </div>
-
-    <script type="module" src="scripts/index.js"></script>
-    <script src="scripts/initialCards.js"></script>
-    
+    </div> 
     
 </body>
 </html>
