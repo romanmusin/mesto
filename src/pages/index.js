@@ -1,6 +1,6 @@
 import '../pages/index.css';
 
-import { initialCards } from '../components/initialCards';
+import { initialCards } from '../utils/initialCards';
 import { Card } from "../components/Card.js";
 import { conf, FormValidator } from "../components/FormValidator.js";
 import { Section } from "../components/Section.js";
@@ -42,7 +42,6 @@ const userInfo = new UserInfo({
 });
 
 const openedEditForm = new PopupWithForm({
-    formSelector: formEditProfile,
 	popupSelector: '.popup_edit-profile',
 	handleFormSubmit: (data) => {
         userInfo.setUserInfo(data);
@@ -53,26 +52,25 @@ const openedEditForm = new PopupWithForm({
 openedEditForm.setEventListeners();
 
 openPopupBtn.addEventListener('click', () => {
+    popupProfileValidation.resetValidation();
 	openedEditForm.setIinputValues(userInfo.getUserInfo());
-	openedEditForm.openPopup()
+	openedEditForm.openPopup();
 });
 
 
 
-function submitAdd() {
-    const cardElement = this._getInputValues();
+function submitAdd(cardElement) {
     cardsList.addItem(cardElement);
     popupAddCard.closePopup();
-    console.log(cardElement)
 }
 
 const popupAddCard = new PopupWithForm({
-    formSelector: formAddCard,
     popupSelector: '.popup_add-card',
     handleFormSubmit: submitAdd
 });
 popupAddCard.setEventListeners();
 
 plusButton.addEventListener('click', () => {
-    popupAddCard.openPopup()
+    popupCardValidation.resetValidation();
+    popupAddCard.openPopup();
 });

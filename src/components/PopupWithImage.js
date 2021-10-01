@@ -14,14 +14,4 @@ export class PopupWithImage extends Popup {
 
         super.openPopup();
     }
-
-    setEventListeners() {
-        super.setEventListeners();
-        this._popupElement.addEventListener('click', (evt) => {
-            if (!(evt.target === this._popupElement || evt.target.classList.contains('popup__image-close'))) {
-                return;
-              };
-            this.closePopup();
-        });
-    }
 }

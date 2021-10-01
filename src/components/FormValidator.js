@@ -74,6 +74,13 @@ class FormValidator {
             this._buttonElement.removeAttribute('disabled');
         }
     }
+
+    resetValidation() {
+        this._toggleSubmitButtonState();
+        this._inputList.forEach((inputElement) => {
+            this._hideError(inputElement)
+        });
+    }
 }
 
 export { conf, FormValidator };
