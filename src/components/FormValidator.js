@@ -2,6 +2,7 @@ const conf = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__save',
+    popupDeleteSelector: '.popup_delete-card',
     inactiveButtonClass: 'popup__save_disabled',
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'input-error_valid'

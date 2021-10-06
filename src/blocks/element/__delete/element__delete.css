@@ -10,6 +10,7 @@
     position: absolute;
     top: 18px;
     right: 15px;
+    display: none;
 }
 
 .element__delete:hover {
