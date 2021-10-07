@@ -17,15 +17,19 @@ const plusButton = document.querySelector('.profile__plus');
 const formEditProfile = document.querySelector('form[name="edit_form"]');
 const formAddCard = document.querySelector('form[name="add-card_form"]');
 const formEditAvatar = document.querySelector('form[name="edit-avatar_form"]');
+const profName = document.querySelector('.profile__name');
+const profText = document.querySelector('.profile__text');
 const popupCardValidation = new FormValidator(conf, formAddCard);
 const popupProfileValidation = new FormValidator(conf, formEditProfile);
 const popupAvatarValidation = new FormValidator(conf, formEditAvatar);
 const elements = document.querySelector('.elements');
+const avatarBtn = document.querySelector('.profile__avatar-container');
 popupCardValidation.enableValidation();
 popupProfileValidation.enableValidation();
+popupAvatarValidation.enableValidation();
 
 const api = new Api({
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-28/',
+    url: 'https://mesto.nomoreparties.co/v1/cohort-28',
     headers: {
       authorization: '75402bac-517a-4bd7-81a8-9a28f9725978',
       'Content-Type': 'application/json'
@@ -35,15 +39,15 @@ const api = new Api({
 let userDataInfo;
 let cardSection;
 
-Promise.all([api.getCardsInfo(), api.getUInfo()])
+Promise.all([api.getUInfo(), api.getCardsInfo()])
     .then(([userData, initialCards]) => {
         userDataInfo = userData;
-        userInfo.setUserInfo(userData.name, userData.job);
+        userInfo.setUserInfo(userData.name, userData.about);
         userInfo.setUserAvatar(userData.avatar)
         cardSection = new Section({
             items : initialCards, 
-            renderer : (card) => {
-                const addElement = renderCards(card);
+            renderer : (cardItem) => {
+                const addElement = renderCards(cardItem);
                 cardSection.addItem(addElement);
             }
         }, elements);
@@ -57,44 +61,11 @@ Promise.all([api.getCardsInfo(), api.getUInfo()])
 const popupDelete = new PopupWithSubmit('.popup_delete-card');
 popupDelete.setEventListeners();
 
-/*function cardDelete(cardElement) {
-    popupDelete.setFormSubmit(() => {
-        api.cardDelete(cardElement.cardId)
-            .then(() => {
-                card.cardElementDelete();
-                popupDelete.closePopup();
-            })
-        .catch((err) => {
-            console.log(err);
-        })
-    })
-    popupDelete.openPopup();
-}
-
-function handleLikeCard(newCard, data) {
-    const promise = newCard.isLiked() ? api.deleteLike(data._id) : api.putLike(data._id);
-    promise
-      .then((data) => {
-        newCard.setLike(data);
-      })
-      .catch((err) => {
-        console.log(err)//(`${err}`);
-      });
-}*/
-
-
-
-
-
 const popupShowImg = new PopupWithImage('.popup_image');
 popupShowImg.setEventListeners();
 
-/*function openPic(...args) {
-    popupShowImg.openPopup(...args);
-}*/
-
 function renderCards(item) {
-    const newCard = new Card(item, { myId: userData._id,
+    const newCard = new Card(item, { myId: userDataInfo._id,
         handleCardClick: () => {
             popupShowImg.openPopup(item);
         },
@@ -131,12 +102,9 @@ function renderCards(item) {
               console.log(err)
             })
         }},
-        '.elements__template')         
+    '.elements__template')
+    return newCard.generateCard();    
 }
-
-//const cardsList = new Section({ items : initialCards, renderer : renderCards }, elements);
-
-//cardsList.renderItems();
 
 const userInfo = new UserInfo({
     userNameSelector: '.profile__name',
@@ -144,11 +112,10 @@ const userInfo = new UserInfo({
     userAvatarSelector: '.profile__avatar'
 });
 
-const openedEditForm = new PopupWithForm({
-	popupSelector: '.popup_edit-profile',
+const openedEditForm = new PopupWithForm('.popup_edit-profile', {
 	handleFormSubmit: (data) => {
         openedEditForm.setLoading(true);
-        api.editUInfo(data.name, data.job)
+        api.setUserInfo(data.name, data.job)
         .then(() => {
             userInfo.setUserInfo(data.name, data.job);
             openedEditForm.closePopup();
@@ -157,31 +124,19 @@ const openedEditForm = new PopupWithForm({
             console.log((err));
         })
         .finally(() => {
-            openedEditForm.renderLoading(false);
+            openedEditForm.setLoading(false);
         })
     }  
-    
 });
 openedEditForm.setEventListeners();
-
-openPopupBtn.addEventListener('click', () => {
-    popupProfileValidation.resetValidation();
-	openedEditForm.setIinputValues(userInfo.getUserInfo());
-	openedEditForm.openPopup();
-});
-
-/*function submitAdd(cardElement) {
-    cardsList.addItem(cardElement);
-    popupAddCard.closePopup();
-}*/
 
 const popupAddCard = new PopupWithForm('.popup_add-card', {
     handleFormSubmit: ({ name, link }) => {
         popupAddCard.setLoading(true)
         api.postAddCard({ name, link })
         .then((data) => {
-            const postAddCard = renderCards(data);
-            cardSection.addItem(postAddCard, false);
+            const postCard = renderCards(data);
+            cardSection.addItem(postCard);
             popupAddCard.closePopup();
         })
         .catch((err) => {
@@ -197,7 +152,7 @@ popupAddCard.setEventListeners();
 const popupAvatar = new PopupWithForm(".popup_edit-avatar", {
     handleFormSubmit: (data) => {
   popupAvatar.setLoading(true)
-      api.setNewAvatar(data.avatar)
+      api.editAvatar(data.avatar)
       .then(() => {
         userInfo.setAvatar(data.avatar)
         popupAvatar.closePopup()
@@ -209,9 +164,21 @@ const popupAvatar = new PopupWithForm(".popup_edit-avatar", {
         popupAvatar.setLoading(false)
       })
     },
-  });
+});
+popupAvatar.setEventListeners();
+
+openPopupBtn.addEventListener('click', () => {
+    popupProfileValidation.resetValidation();
+	openedEditForm.setIinputValues(userInfo.getUserInfo());
+	openedEditForm.openPopup();
+});
 
 plusButton.addEventListener('click', () => {
     popupCardValidation.resetValidation();
     popupAddCard.openPopup();
+});
+
+avatarBtn.addEventListener('click', () => {
+    popupAvatarValidation.resetValidation();
+    popupAvatar.openPopup();
 });
