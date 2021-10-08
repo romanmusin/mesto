@@ -13,7 +13,7 @@
     z-index: 1;
 }
 
-.input-error:last-of-type {
+.input-error:nth-of-type(2) {
     top: 200px;
 }
 

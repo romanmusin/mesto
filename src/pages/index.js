@@ -1,6 +1,6 @@
 import '../pages/index.css';
 
-import { initialCards } from '../utils/initialCards';
+//import { initialCards } from '../utils/initialCards';
 import { Card } from "../components/Card.js";
 import { conf, FormValidator } from "../components/FormValidator.js";
 import { Section } from "../components/Section.js";
@@ -11,7 +11,7 @@ import { Api } from "../components/Api.js";
 import { PopupWithSubmit } from "../components/PopupWithSubmit.js";
 
 
-const popupCard = document.querySelector('.popup_add-card');
+//const popupCard = document.querySelector('.popup_add-card');
 const openPopupBtn = document.querySelector('.profile__edit-button');
 const plusButton = document.querySelector('.profile__plus');
 const formEditProfile = document.querySelector('form[name="edit_form"]');
@@ -46,8 +46,8 @@ Promise.all([api.getUInfo(), api.getCardsInfo()])
         userInfo.setUserAvatar(userData.avatar)
         cardSection = new Section({
             items : initialCards, 
-            renderer : (cardItem) => {
-                const addElement = renderCards(cardItem);
+            renderer : (item) => {
+                const addElement = renderCards(item);
                 cardSection.addItem(addElement);
             }
         }, elements);
@@ -86,17 +86,17 @@ function renderCards(item) {
             api.putLike(item._id)
             .then((data) => {
                 newCard.showLikesAmount(data.likes)
-                newCard.addLike()
+                newCard.toggleLike()
             })
             .catch((err) => {
                 console.log(err)
             })
         },
-        handleDeletelike: () => {
+        handleDeleteLike: () => {
             api.deleteLike(item._id)
             .then((data) => {
               newCard.showLikesAmount(data.likes)
-              newCard.addLike()
+              newCard.toggleLike()
             })
             .catch((err) => {
               console.log(err)
@@ -149,20 +149,21 @@ const popupAddCard = new PopupWithForm('.popup_add-card', {
 });
 popupAddCard.setEventListeners();
 
-const popupAvatar = new PopupWithForm(".popup_edit-avatar", {
+const popupAvatar = new PopupWithForm('.popup_edit-avatar', {
     handleFormSubmit: (data) => {
-  popupAvatar.setLoading(true)
-      api.editAvatar(data.avatar)
-      .then(() => {
-        userInfo.setAvatar(data.avatar)
-        popupAvatar.closePopup()
-      })
-      .catch((err) => {
-        console.log((err))
-      })
-      .finally(() => {
-        popupAvatar.setLoading(false)
-      })
+        popupAvatar.setLoading(true)
+        api.editAvatar(data.link)
+        .then(() => {
+            userInfo.setUserAvatar(data.link)
+            popupAvatar.closePopup();
+        })
+        .catch((err) => {
+            console.log((err))
+            console.log(data)
+        })
+        .finally(() => {
+            popupAvatar.setLoading(false)
+        })
     },
 });
 popupAvatar.setEventListeners();

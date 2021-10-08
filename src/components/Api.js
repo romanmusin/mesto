@@ -36,7 +36,7 @@ export class Api {
           }).then(this._getResponse);
     }
 
-    setUserInfo({ profName, profText }) {
+    setUserInfo(profName, profText) {
         return fetch(`${this._url}/users/me`, {
             method: "PATCH",
             headers: this._headers,
@@ -44,21 +44,21 @@ export class Api {
               name: profName,
               about: profText,
             }),
-        }).then(this._getResponse);;
+        }).then(this._getResponse);
     }
 
-    editAvatar({ avatar }) {
+    editAvatar(link) {
         return fetch(`${this._url}/users/me/avatar`, {
             method: "PATCH",
             headers: this._headers,
             body: JSON.stringify({
-              avatar: avatar,
+              avatar: link,
             }),
-          }).then(this._getResponse);;
+          }).then(this._getResponse);
     }
 
     cardDelete(cardId) {
-        return fetch(`${this._url}/cads/${cardId}`, {
+        return fetch(`${this._url}/cards/${cardId}`, {
             method: "DELETE",
             headers: this._headers,
           }).then(this._getResponse);
@@ -71,8 +71,8 @@ export class Api {
           }).then(this._getResponse);
     }
 
-    deleteLike(id) {
-        return fetch(`${this._url}cards/likes/${id}`, {
+    deleteLike(cardId) {
+        return fetch(`${this._url}/cards/likes/${cardId}`, {
             method: 'DELETE',
             headers: this._headers
         })
